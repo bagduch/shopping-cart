@@ -15,4 +15,15 @@ class CartTest extends \PHPUnit_Framework_TestCase
         return $cart;
     }
 
+    private function TestaddtoCart()
+    {
+        $cart = $this->iniTestCart();
+        $cart->add('dsadsa');
+    }
+
+    private function TestUpdatetoCart()
+    {
+        $cart = $this->iniTestCart();
+    }
+
 }
