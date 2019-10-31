@@ -2,7 +2,7 @@
 
 namespace bagduch\ShoppingCart\lib\storage;
 
-use bagduch\lib\storage\Storage;
+use bagduch\ShoppingCart\lib\storage\Storage;
 
 class Cookie implements Storage
 {
