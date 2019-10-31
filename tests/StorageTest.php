@@ -2,23 +2,16 @@
 
 namespace bagduch\ShoppingCart\Test;
 
+use bagduch\ShoppingCart\lib\storage\Cookie;
+
 class StorageTest extends \PHPUnit_Framework_TestCase
 {
-    private function iniTestStorage()
+
+
+    private function TestInitCookie()
     {
-        $cart = new Cart();
-        return $cart;
+        $storage = new Cookie('1001');
     }
 
-    private function TestaddtoCart()
-    {
-        $cart = $this->iniTestCart();
-        $cart->add('dsadsa');
-    }
-
-    private function TestUpdatetoCart()
-    {
-        $cart = $this->iniTestCart();
-    }
 
 }
