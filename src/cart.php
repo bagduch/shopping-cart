@@ -4,6 +4,7 @@ namespace bagduch\ShoppingCart;
 
 use bagduch\ShoppingCart\lib\Cart as BaseCart;
 use bagduch\ShoppingCart\lib\Item;
+use bagduch\ShoppingCart\Product;
 
 class Cart extends BaseCart
 {
@@ -21,7 +22,7 @@ class Cart extends BaseCart
         // TODO: Implement load() method.
     }
 
-    public function update(Item $item, $qty)
+    public function update(Product $product, $qty)
     {
         // TODO: Implement update() method.
     }
