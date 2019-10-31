@@ -41,7 +41,7 @@ abstract class Cart
 
     public function isEmpty()
     {
-        return empty($this->cartItems;
+        return empty($this->cartItems);
     }
 
     public function emptyCart()
