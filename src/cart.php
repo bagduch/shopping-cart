@@ -1,6 +1,6 @@
 <?php
 
-namespace bagduch\Cart;
+namespace bagduch\ShoppingCart;
 
 class Cart
 {

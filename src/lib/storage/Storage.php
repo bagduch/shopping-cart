@@ -1,6 +1,6 @@
 <?php
 
-namespace bagduch\lib\storage;
+namespace bagduch\ShoppingCart\lib\storage;
 
 interface Storage
 {

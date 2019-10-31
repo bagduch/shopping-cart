@@ -1,6 +1,6 @@
 <?php
 
-namespace bagduch\lib\storage;
+namespace bagduch\ShoppingCart\lib\storage;
 
 use bagduch\lib\storage\Storage;
 
@@ -16,13 +16,18 @@ class Cookie implements Storage
         }
     }
 
-    public function set($value, $time)
+    public function set($cart = array(), $time = null)
     {
-        setcookie($this->cookie, $value, time() + (86400 * 30), "/");
+        try {
+            $time = is_null($time) && is_numeric($time) ? $time : time() + (86400 * 30);
+            setcookie($this->cookie, $cart, $time);
+        } catch (Exception $e) {
+            echo 'Cookie has to be enable: ', $e->getMessage(), "\n";
+        }
     }
 
     public function get($name)
     {
-
+        return isset($_COOKIE[$name]) ? $_COOKIE[$name] : "";
     }
 }
