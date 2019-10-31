@@ -2,8 +2,11 @@
 
 namespace bagduch\ShoppingCart\lib\product;
 
+use bagduch\ShoppingCart\lib\validation\Validation;
+
 abstract class Product
 {
+    use Validation;
     /**
      * Item Stock Keeping Unit
      *
@@ -28,14 +31,30 @@ abstract class Product
     /**
      * Item tax
      *
-     * @var string $price
+     * @var string $tax
      */
     protected $tax;
 
+    /**
+     * Item option
+     *
+     * @var string $options
+     */
+
+    protected $options;
+
+
+    abstract public function setOption($option);
+
+    abstract public function getOption();
+
+    abstract public function setPrice($price);
+
+    abstract public function getPrice();
 
     public function setName($name)
     {
-        $this->name = $name;
+        $this->name = (string)$name;
     }
 
     public function getName()
@@ -50,17 +69,19 @@ abstract class Product
 
     public function setId($id)
     {
-        $this->id = $id;
+        $this->validateIntFormat($id);
+        $this->id = (int)$id;
     }
 
-    public function setPrice($price)
+    public function setTax($tax)
     {
-        $this->price = $price;
+        $this->validateAmountFormat($tax);
+        $this->tax = $tax;
     }
 
-    public function getPrice($price)
+    public function getTax()
     {
-        return $this->price;
+        return $this->tax;
     }
 
 

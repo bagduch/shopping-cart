@@ -1,29 +1,20 @@
 <?php
 
+namespace bagduch\ShoppingCart\lib\validation;
+
 trait Validation
 {
-    public function valid($data, $rules)
+    public function validateAmountFormat($amount)
     {
-        if (!emtpy($rules)) {
-            foreach ($rules as $key => $row) {
-                if (isset($data[$key])) {
-                    $rules = explode("|", $row);
-                    foreach ($rules as $rule) {
-                        if ($rule == "required") {
-                            return $data[$key] == "" ? $key . " is required" : true;
-                        } elseif ($rule == "number") {
-                            return is_numeric($data[$key]) ? true : $key . " is not number";
-                        } elseif ($rule == "number") {
-                            return is_numeric($data[$key]) ? true : $key . " is not number";
-                        }
-                    }
-
-                } else {
-                    return $key . " not found";
-                }
-            }
+        if (!preg_match('/^\d+\.\d{2}$/', $amount)) {
+            throw new \Exception('Invalid amount format');
         }
-        return true;
     }
 
+    public function validateIntFormat($id)
+    {
+        if (!is_int($id)) {
+            throw new \Exception('Id format');
+        }
+    }
 }
