@@ -4,18 +4,19 @@ namespace bagduch\ShoppingCart;
 
 use bagduch\ShoppingCart\lib\Cart as BaseCart;
 use bagduch\ShoppingCart\lib\Item;
+use bagduch\ShoppingCart\lib\storage\Storage;
 use bagduch\ShoppingCart\Product;
 use bagduch\ShoppingCart\lib\storage\Cookie;
 
 class Cart extends BaseCart
 {
 
-    protected $cookie;
+    protected $storage;
 
     //this is a cookie storage class can be extend to session or etc
-    public function __construct(Cookie $cookie)
+    public function __construct(Storage $storage)
     {
-        $this->cookie = $cookie;
+        $this->storage = $storage;
         $this->load();
 
     }
@@ -41,7 +42,7 @@ class Cart extends BaseCart
     public function store()
     {
         // TODO: Implement store() method.
-        $this->cookie->set($this);
+        $this->storage->set($this);
 
     }
 }
