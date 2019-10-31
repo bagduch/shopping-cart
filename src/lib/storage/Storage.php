@@ -2,11 +2,13 @@
 
 namespace bagduch\ShoppingCart\lib\storage;
 
+use bagduch\ShoppingCart\lib\Cart;
+
 interface Storage
 {
 
-    public function set($value, $time);
+    public function set(Cart $cart, $time);
 
-    public function get($name);
+    public function get();
 
 }

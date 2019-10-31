@@ -19,7 +19,7 @@ abstract class Cart
      */
     abstract public function load();
 
-    abstract public function update(Product $product, $qty);
+    abstract public function update($id, $qty);
 
     abstract public function store();
 
@@ -32,17 +32,16 @@ abstract class Cart
     {
         $id = $product->getid();
 
-        if (isset($this->items[$id])) {
-            $this->updateItem($product, $this->items[$id]['qty'] + 1);
+        if (isset($this->cartItems[$id])) {
+            $this->updateItem($id, $this->cartItems[$id]['qty'] + 1);
         } else {
-            $this->items[$id] = array('item' => $product, 'qty' => 1);
-            $this->ids[] = $id;
+            $this->cartItems[$id] = array('item' => $product, 'qty' => 1);
         }
     }
 
     public function isEmpty()
     {
-        return empty($this->items);
+        return empty($this->cartItems;
     }
 
     public function emptyCart()
